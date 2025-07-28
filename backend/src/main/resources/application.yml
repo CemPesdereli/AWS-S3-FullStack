@@ -9,6 +9,13 @@ cors:
   allowed-headers: "*"
   exposed-headers: "*"
 
+aws:
+  region: eu-north-1
+  s3:
+    buckets:
+      customer: fs-amigoscode-cem-customer-test
+
+
 management:
   endpoints:
     web:
@@ -16,13 +23,15 @@ management:
         include: "health,info"
 
 spring:
+  flyway:
+    ignore-migration-patterns:
   datasource:
     url: jdbc:postgresql://localhost:5332/customer
     username: amigoscode
     password: password
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
