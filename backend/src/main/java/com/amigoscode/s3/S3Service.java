@@ -19,7 +19,6 @@ public class S3Service {
         this.s3 = s3;
     }
 
-
     public void putObject(String bucketName, String key, byte[] file) {
         PutObjectRequest objectRequest = PutObjectRequest.builder()
                 .bucket(bucketName)
@@ -42,9 +41,5 @@ public class S3Service {
             throw new RuntimeException(e);
         }
 
-
     }
-
-
-
 }
